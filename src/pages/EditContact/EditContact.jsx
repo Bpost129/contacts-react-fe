@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 import style from './NewContact.module.css'
 
-const NewContact = () => {
+const EditContact = () => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     firstName: '',
@@ -38,7 +38,7 @@ const NewContact = () => {
   
   return (
     <div className={style.addContactContainer}>
-      <h1>Add Contact</h1>
+      <h1>Edit Contact</h1>
       <form className={style.addContactForm} onSubmit={handleSubmit}>
         <label htmlFor="first-name">First Name:
         <input 
@@ -73,4 +73,4 @@ const NewContact = () => {
   )
 }
 
-export default NewContact
+export default EditContact

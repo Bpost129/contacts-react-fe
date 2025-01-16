@@ -1,32 +1,23 @@
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import NavBar from './components/NavBar/NavBar'
 import ContactList from './pages/ContactList/ContactList'
 import NewContact from './pages/NewContact/NewContact'
+import ContactPage from './pages/ContactPage/ContactPage'
 
 import './App.css'
 
 function App() {
-  const [contacts, setContacts] = useState([])
-
-  const fetchContacts = async () => {
-    const res = await fetch("http://127.0.0.1:5000/contacts")
-    const data = await res.json()
-    setContacts(data.contacts)
-    console.log(data.contacts)
-  }
-
-  useEffect(() => {
-    fetchContacts()
-  }, [])
+  
 
   return (
     <>
       <NavBar />
       <Routes>
-        <Route path='/' element={<ContactList contacts={contacts} />} />
+        <Route path='/contacts' element={<ContactList />} />
         <Route path='/new' element={<NewContact />} />
+        <Route path='/contacts/:contactId' element={<ContactPage />} />
       </Routes>
     </>
   )
